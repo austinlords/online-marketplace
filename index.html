@@ -12,58 +12,92 @@
   <body>
     <div class="container bg-light">
       <h1 class="mb-3 pt-3 pb-3 text-center title">Order Form</h1>
-      <h3 class="mt-3 mb-3 p-2">Select One:</h3>
+      <h3 class="mt-3 mb-3 p-2">SELECT ONE:</h3>
       <!-- select a shoe, with pictures -->
-      <div class="row">
-        <div class="col text-center mb-5">
-          <div class="custom-control custom-radio custom-control-inline">
-            <input class="custom-control-input" type="radio" name="shoeChoice" id="redShoeRadio" value="redShoe" required>
-            <label class="custom-control-label" for="redShoeRadio">
-              <img src="images/red-shoe.jpg" alt="Red Shoe" class="shoe-pic">
-              <div>
-                <p class="text-center mt-3">$<span id="redShoeCost"></span></p>
-              </div>
-            </label>
+      <form id="selectShoe" class="col text-center mb-5">
+        <!-- row for shoes only -->
+        <div class="row text-center mb-3">
+          <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input class="custom-control-input" type="radio" name="shoeChoice" id="redShoeRadio" value="redShoe" required>
+              <label class="custom-control-label" for="redShoeRadio">
+                <img src="images/red-shoe.jpg" alt="Red Shoe" class="shoe-pic">
+                <div>
+                  <p class="text-center mt-3">$<span id="redShoeCost"></span></p>
+                </div>
+              </label>
+            </div>
           </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input class="custom-control-input" type="radio" name="shoeChoice" id="blackShoeRadio" value="blackShoe">
-            <label class="custom-control-label" for="blackShoeRadio">
-              <img src="images/black-shoe.jpg" alt="Black shoe" class="shoe-pic">
-              <div>
-                <p class="text-center mt-3">$<span id="blackShoeCost"></span></p>
-              </div>
-            </label>
+          <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input class="custom-control-input" type="radio" name="shoeChoice" id="blackShoeRadio" value="blackShoe">
+              <label class="custom-control-label" for="blackShoeRadio">
+                <img src="images/black-shoe.jpg" alt="Black shoe" class="shoe-pic">
+                <div>
+                  <p class="text-center mt-3">$<span id="blackShoeCost"></span></p>
+                </div>
+              </label>
+            </div>
           </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input class="custom-control-input" type="radio" name="shoeChoice" id="whiteShoeRadio" value="whiteShoe">
-            <label class="custom-control-label" for="whiteShoeRadio">
-              <img src="images/white-shoe.jpg" alt="White shoe" class="shoe-pic">
-              <div>
-                <p class="text-center mt-3">$<span id="whiteShoeCost"></span></p>
-              </div>
-            </label>
+          <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input class="custom-control-input" type="radio" name="shoeChoice" id="whiteShoeRadio" value="whiteShoe">
+              <label class="custom-control-label" for="whiteShoeRadio">
+                <img src="images/white-shoe.jpg" alt="White shoe" class="shoe-pic">
+                <div>
+                  <p class="text-center mt-3">$<span id="whiteShoeCost"></span></p>
+                </div>
+              </label>
+            </div>
           </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input class="custom-control-input" type="radio" name="shoeChoice" id="greenShoeRadio" value="greenShoe">
-            <label class="custom-control-label" for="greenShoeRadio">
-              <img src="images/green-shoe.jpg" alt="Green shoe" class="shoe-pic">
-              <div>
-                <p class="text-center mt-3">$<span id="greenShoeCost"></span></p>
-              </div>
-            </label>
+          <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input class="custom-control-input" type="radio" name="shoeChoice" id="greenShoeRadio" value="greenShoe">
+              <label class="custom-control-label" for="greenShoeRadio">
+                <img src="images/green-shoe.jpg" alt="Green shoe" class="shoe-pic">
+                <div>
+                  <p class="text-center mt-3">$<span id="greenShoeCost"></span></p>
+                </div>
+              </label>
+            </div>
           </div>
         </div>
-      </div>
-      <p class="mb-3 text-center"><strong>Total: $<span class="totalCost"></span></strong></p>
-      <!-- new form with rest of the order details -->
-      <h3 class="mt-3 mb-3">Complete order details:</h3>
+        <!-- row for quantity, add to cart & total -->
+        <div class="row align-items-center m-auto">
+          <div class="col-md-2 col-sm-3 form-group text-left">
+            <label for="quantity">Quantity: </label>
+            <select id="quantity" class="form-control" required>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-4">
+            <button type="submit" class="btn btn-primary">Add to Cart</button>
+          </div>
+          <div class="col-md-2 col-sm-4 largerText">
+            <p class="mb-3 text-center">
+              <strong>Total: $<span class="totalCost"></span></strong>
+            </p>
+          </div>
+        </div>
+      </form>
+      <!-- form to enter order details -->
       <div class="row">
-        <!-- order form -->
-        <div class="col-md-4">
+        <div id="orderDetails" class="col-xl-5 col-lg-6 col-md-8 col-sm-10 initially-hidden">
+          <h3 class="mb-4">ORDER DETAILS:</h3>
           <form id="orderDetails">
             <div class="form-group">
-              <label for="fullName">Select shoe size (Men's USA)</label>
-              <select class="form-control" id="shoeSize">
+              <label for="shoeSize">Select shoe size (Men's USA)</label>
+              <select class="form-control" id="shoeSize" required>
+                <option value=""selected disabled hidden>Select Size</option>
                 <option>6</option>
                 <option>6.5</option>
                 <option>7</option>
@@ -84,38 +118,90 @@
             </div>
             <div class="form-group">
               <label for="fullName">Full Name</label>
-              <input type="name" class="form-control" id="fullName" placeholder="Full name" required>
+              <input id="fullName" type="name" class="form-control"  placeholder="Full name" required>
             </div>
             <div class="form-group">
               <label for="emailAddress">Email Address</label>
-              <input type="email" class="form-control" id="emailAddress" placeholder="Your email address" required>
+              <input id="emailAddress" type="email" class="form-control"  placeholder="Your email address" required>
             </div>
             <p>*<i>You will be emailed a payment link to complete transaction.</i></p>
             <!-- Address section -->
-            <h4 class="mt-5 mb-4">Address</h4>
             <div class="form-group">
-              <label class="control-label" for="textinput">Address Line 1</label>
-              <input type="text" placeholder="Street Address" class="form-control" required>
+              <label class="control-label" for="address1">Address Line 1</label>
+              <input id="address1" type="text" placeholder="Street Address" class="form-control" required>
             </div>
             <div class="form-group">
-              <label class="control-label" for="textinput">Address Line 2</label>
-              <input type="text" placeholder="Apt, Suite, etc." class="form-control">
+              <label class="control-label" for="address2">Address Line 2</label>
+              <input id="address2" type="text" placeholder="Apt, Suite, etc." class="form-control">
             </div>
             <div class="form-group">
-              <label class="control-label" for="textinput">City</label>
-              <input type="text" placeholder="City" class="form-control" required>
+              <label class="control-label" for="city">City</label>
+              <input id="city" type="text" placeholder="City" class="form-control" required>
             </div>
             <div class="form-group">
-              <label class="control-label" for="textinput">State</label>
-              <input type="text" placeholder="State" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label class="control-label" for="textinput">Zip Code</label>
-              <input type="text" placeholder="Zip Code" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label class="control-label" for="textinput">Country</label>
-              <input type="text" placeholder="Country" class="form-control" required>
+              <div class="row">
+                <div class="col-4">
+                  <label class="control-label" for="state">State</label>
+                  <select id="state" type="text" placeholder="State" class="form-control" required >
+                    <option value=""selected disabled hidden>Select</option>
+                  	<option value="AL">AL</option>
+                  	<option value="AK">AK</option>
+                  	<option value="AR">AR</option>
+                  	<option value="AZ">AZ</option>
+                  	<option value="CA">CA</option>
+                  	<option value="CO">CO</option>
+                  	<option value="CT">CT</option>
+                  	<option value="DC">DC</option>
+                  	<option value="DE">DE</option>
+                  	<option value="FL">FL</option>
+                  	<option value="GA">GA</option>
+                  	<option value="HI">HI</option>
+                  	<option value="IA">IA</option>
+                  	<option value="ID">ID</option>
+                  	<option value="IL">IL</option>
+                  	<option value="IN">IN</option>
+                  	<option value="KS">KS</option>
+                  	<option value="KY">KY</option>
+                  	<option value="LA">LA</option>
+                  	<option value="MA">MA</option>
+                  	<option value="MD">MD</option>
+                  	<option value="ME">ME</option>
+                  	<option value="MI">MI</option>
+                  	<option value="MN">MN</option>
+                  	<option value="MO">MO</option>
+                  	<option value="MS">MS</option>
+                  	<option value="MT">MT</option>
+                  	<option value="NC">NC</option>
+                  	<option value="NE">NE</option>
+                  	<option value="NH">NH</option>
+                  	<option value="NJ">NJ</option>
+                  	<option value="NM">NM</option>
+                  	<option value="NV">NV</option>
+                  	<option value="NY">NY</option>
+                  	<option value="ND">ND</option>
+                  	<option value="OH">OH</option>
+                  	<option value="OK">OK</option>
+                  	<option value="OR">OR</option>
+                  	<option value="PA">PA</option>
+                  	<option value="RI">RI</option>
+                  	<option value="SC">SC</option>
+                  	<option value="SD">SD</option>
+                  	<option value="TN">TN</option>
+                  	<option value="TX">TX</option>
+                  	<option value="UT">UT</option>
+                  	<option value="VT">VT</option>
+                  	<option value="VA">VA</option>
+                  	<option value="WA">WA</option>
+                  	<option value="WI">WI</option>
+                  	<option value="WV">WV</option>
+                  	<option value="WY">WY</option>
+                  </select>
+                </div>
+                <div class="col-6">
+                  <label class="control-label" for="zipCode">Zip Code</label>
+                  <input id="zipCode" type="number" placeholder="Zip Code" class="form-control" required>
+                </div>
+              </div>
             </div>
             <div class="form-group">
               <div class="pull-right">
@@ -124,12 +210,20 @@
             </div>
           </form>
         </div>
-        <!-- receipt -->
-        <div class="col-md-4 mt-5 ml-auto initially-hidden">
-          <h4 class="">Receipt</h4>
+        <!-- RECEIPT -->
+        <div id="receipt" class="col-md-4 ml-auto initially-hidden">
+          <h3 class="mb-4">RECEIPT:</h3>
           <p>Order sent! <i>This is your receipt</i>. You will soon receive an email with the payment link to complete the order.</p>
-          <div>
-            <p id="receiptName"></p>
+          <div class="mt-4 pl-3">
+            <div class="address">
+              <div id="receiptName" class="font-weight-bold"></div>
+              <div id="receiptAddress1"></div>
+              <div id="receiptAddress2"></div>
+              <span id="receiptCity"></span><span id="receiptState"></span><span id="receiptZipCode"></span>
+            </div>
+            <p class="mt-2">Your email address: <i><span id="receiptEmailAddress"></span></i></p>
+            <p class="mt-5">Shoe size: <span id="receiptShoeSize"></span> (Men's USA)</p>
+            <p class="font-weight-bold mt-3">Total: $<span id="receiptTotal"></span></p>
           </div>
         </div>
       </div>
